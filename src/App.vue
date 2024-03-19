@@ -1,24 +1,23 @@
 <template>
-  <h1>Hello</h1>
+  <div id="app">
+    <NavbarComponent/>
+    <IntroContentComponent/>
+  </div>
 </template>
 
 <script>
+  import NavbarComponent from './components/NavbarComponent.vue'
+  import IntroContentComponent from './components/IntroContentComponent.vue'
 
-export default {
-  name: 'App',
-  components: {
-  
-  }
-}
+  export default {
+    name: 'App',
+    components: {
+      NavbarComponent,
+      IntroContentComponent,
+    }
+  };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss" scoped>
+
 </style>
