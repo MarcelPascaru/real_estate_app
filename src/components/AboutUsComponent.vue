@@ -23,13 +23,18 @@
                     <p class="text-sm text-slate-gray">When unknow printer took galley<br/> of type and scrambled.</p>
                 </div>
             </div>
-            <button class="w-[120px] p-2 bg-main-color text-white rounded-[1rem] hover:bg-black transition-all duration-300">Learn More</button>
+            <el-button type="primary" round class="w-[120px]">Learn More</el-button>
         </div>
     </div>
 </template>
 
 <script>
+import { ElButton } from 'element-plus';
+
 export default {
-    name: 'AboutUsComponent'
+    name: 'AboutUsComponent',
+    components: {
+        ElButton,
+    }
 }
 </script>

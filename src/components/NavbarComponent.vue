@@ -25,20 +25,19 @@
                 </ul>
             </div>
             <div>
-                <button
-                    class="mr-4 p-2 bg-main-color text-white rounded-[1rem] hover:bg-black transition-all duration-300">Get
-                    Started</button>
+                <el-button type="primary" round>Get Started</el-button>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-// import { faHouseChimneyCrack } from '@fortawesome/free-solid-svg-icons';
+import { ElButton } from 'element-plus'
 
 export default {
     name: 'NavbarComponent',
-    
+    components: {
+        ElButton,
+    }
 }
 </script>

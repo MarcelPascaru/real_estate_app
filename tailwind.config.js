@@ -13,7 +13,7 @@ export default {
     extend: {
       colors: {
         'main-color': '#0061E0',
-        'secondary-collor': '#0D263B',
+        'secondary-color': '#0D263B',
         'slate-gray': '#7C8893'
       },
       fontFamily: {
