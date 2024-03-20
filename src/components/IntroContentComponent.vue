@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center items-center pt-[1rem] h-[100vh] bg-[#F4F9FF]">
+    <div class="flex justify-center items-center  h-[100vh] bg-[#F4F9FF] relative">
         <div class="mr-[3rem]">
             <h1 class="text-6xl font-bold mb-[2rem]">Discover A Place<br/>
                 you'll love to live</h1>
