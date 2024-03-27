@@ -2,10 +2,10 @@
     <div class="w-full h-[70px] shadow-xl flex justify-center items-center">
         <div class="max-w-[1280px] flex justify-center items-center">
             <div class="mr-[15rem] flex justify-center items-center text-main-color">
-                <a href="#" class="flex justify-center items-center">
+                <router-link to="/" class="flex justify-center items-center">
                     <img class="w-[28px] h-[35px] mr-1" src="../assets/Logo.png" alt="logo">
                     <h1 class="font-bold">Houzing</h1>
-                </a>
+                </router-link>
             </div>
             <div>
                 <ul class="flex justify-center items-center mr-[15rem]">
@@ -25,14 +25,15 @@
                 </ul>
             </div>
             <div>
-                <el-button type="primary" round>Get Started</el-button>
+                <el-button type="primary" round><router-link to="/login">Get Started</router-link></el-button>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import { ElButton } from 'element-plus'
+import { ElButton } from 'element-plus';
+import { RouterLink } from 'vue-router';
 
 export default {
     name: 'NavbarComponent',
