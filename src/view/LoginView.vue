@@ -1,5 +1,4 @@
 <template>
-    <NavbarComponent/>
     <div class="flex justify-center items-center mt-[12rem]">
         <div class="flex flex-col justify-center items-center p-10 bg-[#E2EFFF] rounded-[0.5rem] shadow-xl">
             <div class="flex justify-center items-center text-3xl text-main-color mb-10">
@@ -9,13 +8,13 @@
             <div class="w-full">
                 <div>
                 <label class="text-lg mr-3"><span class="text-main-color mr-1">*</span>Email</label>
-                <input class="mb-5 border-none w-full mt-2" type="email" v-model="email" placeholder="Enter your email...">
+                <input class="mb-5 border-none w-full mt-2" type="email" v-model="payload.email" placeholder="Enter your email...">
             </div>
             <div >
                 <label class="text-lg mr-3"><span class="text-main-color mr-1">*</span>Password</label>
-                <input class="mb-5 border-none w-full mt-2" type="password" v-model="password" placeholder="Enter your password...">
+                <input class="mb-5 border-none w-full mt-2" type="password" v-model="payload.password" placeholder="Enter your password...">
             </div>
-            <el-button type="primary" round class="w-full mb-5" @click="login">Login</el-button>
+            <el-button type="primary" round class="w-full mb-5" @click="authLogin">Login</el-button>
             <div class="flex justify-center items-center">
                 <span class="text-slate-gray mr-2">If you dosen't have an account, register here </span>
                 <el-icon><Right /></el-icon>
@@ -27,31 +26,56 @@
 </template>
 
 <script>
-import { ElIcon, ElButton } from 'element-plus';
+// UI components
+import { ElIcon, ElButton, ElNotification} from 'element-plus';
 import { Avatar, Right } from '@element-plus/icons-vue';
-import NavbarComponent from './NavbarComponent.vue';
+
+// Router
 import { RouterLink } from 'vue-router';
+
+// Request
+import { login } from "@/services/auth/auth.service.js";
+import router from "@/routes/router.js";
 
 export default {
     name: 'LoginComponent',
     components: {
         ElIcon,
         ElButton,
+        ElNotification,
         Avatar,
-        NavbarComponent,
         RouterLink,
         Right,
     },
     data() {
         return {
-            email: '',
-            password: ''
+            payload: {
+              email: '',
+              password: ''
+            }
         };
     },
     methods: {
-        login() {
-            // Send login request and handle authentication token
-            // Store token in local storage
+        async authLogin() {
+            await login(this.payload)
+                .then((response) => {
+                  ElNotification({
+                    title: 'Success',
+                    message: 'Logged in successfully!',
+                    type: 'success',
+                  })
+                  localStorage.setItem('accessToken', JSON.stringify(response.token));
+                  router.push({name: 'home'});
+                  this.$forceUpdate;
+
+                })
+                .catch((e) => {
+                  ElNotification({
+                    title: 'Error',
+                    message: e,
+                    type: 'error',
+                  })
+                });
         }
     }
 };

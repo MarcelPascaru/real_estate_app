@@ -25,20 +25,33 @@
                 </ul>
             </div>
             <div>
-                <el-button type="primary" round><router-link to="/login">Get Started</router-link></el-button>
+                <el-button v-if="!token" type="primary" round><router-link to="/login">Get Started</router-link></el-button>
+                <el-button v-if="token" type="info" round @click="logout">Log out</el-button>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import { ElButton } from 'element-plus';
-import { RouterLink } from 'vue-router';
+import { ElButton, ElMessageBox } from 'element-plus';
 
 export default {
     name: 'NavbarComponent',
     components: {
         ElButton,
+    },
+    computed: {
+      token() {
+        return JSON.parse(localStorage.getItem('accessToken')) !== null;
+      }
+    },
+  methods: {
+    logout() {
+      ElMessageBox.confirm('Are you sure want to logout?')
+          .then(() => {
+            localStorage.removeItem('accessToken');
+          });
     }
+  }
 }
 </script>
