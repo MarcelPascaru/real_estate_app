@@ -1,7 +1,7 @@
 <template>
     <NavbarComponent/>
     <div class="flex justify-center items-center mt-[12rem]">
-        <div class="flex flex-col justify-center items-center p-10 bg-[#E2EFFF] rounded-[0.5rem] shadow-xl">
+        <div class="flex flex-col justify-center items-center p-10 bg-[#F5F5F5] rounded-[0.5rem] shadow-xl">
             <div class="flex justify-center items-center text-3xl text-main-color mb-10">
                 <el-icon><Avatar /></el-icon>
                 <h1 class="ml-2 text-2xl">Log in to your account</h1>
