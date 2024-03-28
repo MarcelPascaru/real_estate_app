@@ -1,5 +1,4 @@
 <template>
-    <NavbarComponent />
     <div class="flex justify-center items-center mt-[6rem]">
         <div class="flex flex-col justify-center items-center p-10 bg-[#F5F5F5] rounded-[0.5rem] shadow-xl">
             <div class="flex justify-center items-center text-3xl text-main-color mb-10">
@@ -35,7 +34,6 @@
 <script>
 import { ElIcon, ElButton } from 'element-plus';
 import { Avatar, Right } from '@element-plus/icons-vue';
-import NavbarComponent from './NavbarComponent.vue';
 import { RouterLink } from 'vue-router';
 
 export default {
@@ -44,7 +42,6 @@ export default {
         ElIcon,
         ElButton,
         Avatar,
-        NavbarComponent,
         RouterLink,
     },
     data() {
