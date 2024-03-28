@@ -1,27 +1,56 @@
 <template>
-    <div class="mt-[15rem] w-full h-[730px] bg-[#E9F3FF]">
-        <el-carousel :interval="5000" arrow="always">
-            <el-carousel-item v-for="item in 4" :key="item">
-                <div class="bg-white p-5 w-[460px] h-[360px] rounded-[0.5rem] shadow-xl">
-                    <el-icon>
-                        <Comment class="w-[55px] h-[55px] text-main-color mb-3" />
-                    </el-icon>
-                    <p class="text-sm text-slate-gray mb-6">
-                        I could probably go into sales for you. I
-                        am completely blown away. After
-                        using SEO my business skyrocketed!
-                        The very best.
-                    </p>
-                    <div class="flex jsutify-center items-center">
-                        <img class="mr-2" src="../assets/Avatar1.png" alt="avatar1">
-                        <div>
-                            <h2 class="font-bold mb-1">Grace Hill</h2>
-                            <span>Customer</span>
+    <div class="w-full h-[730px] p-5 mt-[15rem] bg-[#E9F3FF]">
+        <div class="flex justify-center items-center mt-[4rem]">
+            <div class="w-[1160px]  flex justify-center items-center">
+                <div class="text-center">
+                    <div>
+                        <span class="text-main-color mb-8">OUR TESTIMONIALS</span>
+                        <h1 class="font-bold text-4xl mb-8">What Our Customers Says</h1>
+                    </div>
+                    <div class="flex justify-between items-center w-full mt-[6rem]">
+                        <div class="w-[30%] text-left bg-white rounded-[0.5rem] shadow-xl p-5">
+                            <p class="text-slate-gray mb-10">I could probably go into sales for you. I
+                                am completely blown away. After
+                                using SEO my business skyrocketed!
+                                The very best.</p>
+                            <div class="flex justify-start  items-center">
+                                <img class="mr-5" src="../assets/Avatar1.png" alt="avatar1">
+                                <div>
+                                    <h2 class="font-bold mb-1">Grace Hill</h2>
+                                    <span class="text-slate-gray">Customer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-[30%] text-left bg-white rounded-[0.5rem] shadow-xl p-5">
+                            <p class="text-slate-gray mb-10">I could probably go into sales for you. I
+                                am completely blown away. After
+                                using SEO my business skyrocketed!
+                                The very best.</p>
+                            <div class="flex justify-start  items-center">
+                                <img class="mr-5" src="../assets/Avatar2.png" alt="avatar2">
+                                <div>
+                                    <h2 class="font-bold mb-1">Connor Walker</h2>
+                                    <span class="text-slate-gray">Customer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-[30%] text-left bg-white rounded-[0.5rem] shadow-xl p-5">
+                            <p class="text-slate-gray mb-10">I could probably go into sales for you. I
+                                am completely blown away. After
+                                using SEO my business skyrocketed!
+                                The very best.</p>
+                            <div class="flex justify-start  items-center">
+                                <img class="mr-5" src="../assets/Avatar3.png" alt="avatar3">
+                                <div>
+                                    <h2 class="font-bold mb-1">Kira Wood</h2>
+                                    <span class="text-slate-gray">Customer</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </el-carousel-item>
-        </el-carousel>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -32,8 +61,6 @@ import { Comment } from '@element-plus/icons-vue';
 export default {
     name: 'TestimonialsComponent',
     components: {
-        ElCarousel,
-        ElCarouselItem,
         Comment,
     },
     data: (() => {
