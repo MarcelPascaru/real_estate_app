@@ -5,7 +5,7 @@ const instance = {
 };
 
 const httpRequest = axios.create({
-    baseURL: `${instance.baseURL}/api`,
+    baseURL: `${instance.baseURL}/api/frontend`,
     headers: {
         Accept: "application/json;charset=UTF-8",
         "Content-Type": "application/json;charset=UTF-8",
