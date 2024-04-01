@@ -25,6 +25,9 @@
                 </ul>
             </div>
             <div>
+                <el-button type="primary" round>
+                  <router-link to="/chat">Chat</router-link>
+                </el-button>
                 <el-button v-if="!token" type="primary" round><router-link to="/login">Get Started</router-link></el-button>
                 <el-button v-if="token" type="info" round @click="logout">Log out</el-button>
             </div>
