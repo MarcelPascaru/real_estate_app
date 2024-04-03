@@ -11,7 +11,7 @@
                 <ul class="flex justify-center items-center mr-[15rem]">
                     <li
                         class="mr-6 hover:-translate-y-1 transition-all duration-300 relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
-                        <a href="#">Buy</a></li>
+                        <a href="#"><router-link to="/buy">Buy</router-link></a></li>
                     <li
                         class="mr-6 hover:-translate-y-1 transition-all duration-300 relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
                         <a href="#">Rent</a></li>
