@@ -34,7 +34,6 @@ import { Avatar, Right } from '@element-plus/icons-vue';
 import { RouterLink } from 'vue-router';
 
 // Request
-import { login } from "@/services/auth/auth.service.js";
 import router from "@/routes/router.js";
 
 export default {
@@ -56,15 +55,14 @@ export default {
         };
     },
     methods: {
-        async authLogin() {
-            await login(this.payload)
+        authLogin() {
+            this.$store.dispatch('authModule/login', this.payload)
                 .then((response) => {
                   ElNotification({
                     title: 'Success',
                     message: 'Logged in successfully!',
                     type: 'success',
                   })
-                  localStorage.setItem('accessToken', JSON.stringify(response.token));
                   router.push({name: 'home'});
                   this.$forceUpdate;
 
