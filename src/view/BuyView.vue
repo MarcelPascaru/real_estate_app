@@ -3,7 +3,13 @@
     <FilterComponent/>
     <el-container>
       <el-aside width="1050px" class="bg-slate-gray">
-        Map
+        <GoogleMap
+            style="width: 100%; height: 100%"
+            :center="mapCenterPosition"
+            :zoom="15"
+        >
+          <Marker v-for="mark in mapMarks" :options="{ position: mark.position }"/>
+        </GoogleMap>
       </el-aside>
       <el-main>
         <div class="p-5 flex flex-col">
@@ -169,7 +175,7 @@ import {ElAside, ElContainer, ElMain, ElButton, ElDialog} from "element-plus";
 import { ref } from 'vue'
 import { CircleCloseFilled } from '@element-plus/icons-vue'
 import {FontAwesomeIcon as Fa} from "@fortawesome/vue-fontawesome";
-
+import { GoogleMap, Marker } from 'vue3-google-map'
 
 export default {
   name: 'BuyView',
@@ -182,12 +188,33 @@ export default {
     ElButton,
     ElDialog,
     CircleCloseFilled,
+    GoogleMap,
+    Marker,
   },
   data() {
     return {
       visible: ref(false),
     }
   },
+  computed: {
+    realEstates() {
+      return this.$store.getters['realEstateModule/getRealEstates'];
+    },
+    mapCenterPosition() {
+      return this.$store.getters['realEstateModule/getMapCenterPosition'];
+    },
+    mapMarks() {
+      return this.$store.getters['realEstateModule/getMapMarks'];
+    }
+  },
+  mounted() {
+    this.search()
+  },
+  methods: {
+    search() {
+      this.$store.dispatch('realEstateModule/readAll');
+    },
+  }
 }
 </script>
 
