@@ -28,8 +28,8 @@
                 <el-button type="primary" round>
                   <router-link to="/chat">Chat</router-link>
                 </el-button>
-                <el-button v-if="!token" type="primary" round><router-link to="/login">Get Started</router-link></el-button>
-                <el-button v-if="token" type="info" round @click="logout">Log out</el-button>
+                <el-button v-if="!accessToken" type="primary" round><router-link to="/login">Get Started</router-link></el-button>
+                <el-button v-if="accessToken" type="info" round @click="logout">Log out</el-button>
             </div>
         </div>
     </div>
@@ -44,15 +44,15 @@ export default {
         ElButton,
     },
     computed: {
-      token() {
-        return JSON.parse(localStorage.getItem('accessToken')) !== null;
+      accessToken() {
+        return this.$store.getters['authModule/getAccessToken'];
       }
     },
   methods: {
     logout() {
       ElMessageBox.confirm('Are you sure want to logout?')
           .then(() => {
-            localStorage.removeItem('accessToken');
+            this.$store.dispatch('authModule/logout');
           });
     }
   }
