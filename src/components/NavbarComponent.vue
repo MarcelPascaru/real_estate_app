@@ -19,9 +19,13 @@
                         class="mr-6 hover:-translate-y-1 transition-all duration-300 relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
                         <a href="#">Sell</a></li>
                     <li
-                        class="hover:-translate-y-1 transition-all duration-300 relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
+                        class="mr-6 hover:-translate-y-1 transition-all duration-300 relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
                         <a href="#">Dashboard</a>
                     </li>
+                  <li
+                      class="hover:-translate-y-1 transition-all duration-300 relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
+                    <a href="#"><router-link to="/faq">FAQ</router-link></a>
+                  </li>
                 </ul>
             </div>
             <div>

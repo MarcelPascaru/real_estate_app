@@ -20,13 +20,12 @@ export default {
         body: ['Poppins', 'sans-serif']
       },
       width: {
-        400: '400px',
-        760: '760px',
-        780: '780px',
-        800: '800px',
-        1000: '1000px',
-        1200: '1200px',
-        1400: '1400px',
+        xs: "480px",
+        ss: "620px",
+        sm: "768px",
+        md: "1060px",
+        lg: "1200px",
+        xl: "1700px",
       }
     },
   },

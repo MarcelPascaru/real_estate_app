@@ -17,7 +17,7 @@
       <div class="chat-response">
         <spinner-component v-if="loader"></spinner-component>
         <h1>Response:</h1>
-        <div class="chat-response-output" v-html="this.response || 'Output text placeholder...' ">
+        <div class="chat-response-output shadow-xl" v-html="this.response || 'Output text placeholder...' ">
         </div>
       </div>
     </div>
