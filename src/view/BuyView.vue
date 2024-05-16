@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full">
-    <FilterComponent/>
+    <filter-component @search-filters="handleSearch" :filters="filters"></filter-component>
     <el-container>
       <el-aside width="1050px" class="bg-slate-gray">
         <GoogleMap
@@ -14,7 +14,7 @@
       <el-main>
         <div class="p-5 flex flex-col">
           <h1 class="text-3xl font-bold mb-2">Real Estate & Homes For Sale</h1>
-          <span class="text-slate-gray font-bold">13,253 results</span>
+          <span class="text-slate-gray font-bold">{{ countEstates }} results</span>
 
           <div class="flex flex-wrap gap-10">
             <buy-card-component v-for="(estate, index) in realEstates" :key="index"
@@ -50,9 +50,19 @@ export default {
     Marker,
     BuyCardComponent
   },
+  data() {
+    return {
+      filters: {
+        category: ''
+      }
+    }
+  },
   computed: {
     realEstates() {
       return this.$store.getters['realEstateModule/getRealEstates'];
+    },
+    countEstates() {
+      return this.$store.getters['realEstateModule/getCount'];
     },
     mapCenterPosition() {
       return this.$store.getters['realEstateModule/getMapCenterPosition'];
@@ -65,8 +75,12 @@ export default {
     this.search()
   },
   methods: {
+    handleSearch(filters) {
+      this.filters = filters;
+      this.search();
+    },
     search() {
-      this.$store.dispatch('realEstateModule/readAll');
+      this.$store.dispatch('realEstateModule/search', { filters: this.filters});
     },
   }
 }

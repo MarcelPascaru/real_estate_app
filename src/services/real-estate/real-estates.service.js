@@ -1,9 +1,9 @@
 import httpRequest from "@/services/httpRequest.js";
 
-const readAll = () => {
-    return httpRequest.get('real-estates');
+const search = (payload) => {
+    return httpRequest.post('real-estates/search', payload);
 }
 
 export {
-    readAll
+    search
 }
