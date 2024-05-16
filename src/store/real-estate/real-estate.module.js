@@ -1,7 +1,8 @@
-import {readAll} from "@/services/real-estate/real-estates.service.js";
+import {search} from "@/services/real-estate/real-estates.service.js";
 
 const state = () => ({
     realEstates: [],
+    count: 0,
     mapCenterPosition: {},
     mapMarks: []
 })
@@ -9,6 +10,9 @@ const state = () => ({
 const getters = {
     getRealEstates(state) {
         return state.realEstates;
+    },
+    getCount(state) {
+        return state.count;
     },
     getMapCenterPosition(state) {
         return state.mapCenterPosition;
@@ -19,10 +23,10 @@ const getters = {
 }
 
 const actions = {
-    async readAll({commit}) {
+    async search({commit}, payload) {
         try {
-            const response = await readAll();
-            commit('READ_ALL_REAL_ESTATES', response.items);
+            const response = await search(payload);
+            commit('SEARCH_REAL_ESTATES', response);
         } catch (e) {
             throw e;
         }
@@ -30,10 +34,11 @@ const actions = {
 }
 
 const mutations = {
-    READ_ALL_REAL_ESTATES(state, realsEstates) {
-        state.realEstates = realsEstates;
+    SEARCH_REAL_ESTATES(state, realsEstates) {
+        state.realEstates = realsEstates.items;
+        state.count = realsEstates.total;
 
-        let marks = realsEstates.map((item) => {
+            let marks = realsEstates.items.map((item) => {
             return {
                 position: {
                     lat: parseInt(item.lat),
