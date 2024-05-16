@@ -13,12 +13,13 @@
         </div>
         <h3 class="text-sm">{{ this.estate.address }}</h3>
       </div>
-      <buy-details-component :estate="estate"></buy-details-component>
+      <buy-details-modal-component :estate="estate"></buy-details-modal-component>
     </div>
 </template>
 
 <script>
-import BuyDetailsComponent from "@/components/buy/BuyDetailsComponent.vue";
+import BuyDetailsComponent from "@/components/buy/BuyDetailsModalComponent.vue";
+import BuyDetailsModalComponent from "@/components/buy/BuyDetailsModalComponent.vue";
 
 export default {
   name: 'BuyCardComponent',
@@ -29,6 +30,7 @@ export default {
     }
   },
   components: {
+    BuyDetailsModalComponent,
     BuyDetailsComponent
   },
   data() {

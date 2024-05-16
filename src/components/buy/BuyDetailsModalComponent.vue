@@ -119,7 +119,7 @@
 
 <script>
 export default {
-  name: 'BuyDetailsComponent',
+  name: 'BuyDetailsModalComponent',
   props: ['estate'],
   data() {
     return {
