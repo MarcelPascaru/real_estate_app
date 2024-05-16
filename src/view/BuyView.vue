@@ -12,11 +12,14 @@
         </GoogleMap>
       </el-aside>
       <el-main>
-        <div class="p-5 flex flex-col h-[81.9vh]">
+        <div class="p-5 flex flex-col">
           <h1 class="text-3xl font-bold mb-2">Real Estate & Homes For Sale</h1>
-          <span class="text-slate-gray font-bold">{{buildings.length}} results</span>
-          <div class="flex justify-start items-center flex-wrap">
-            <buy-card-component v-for="building in buildings" :building-data="building"></buy-card-component>
+          <span class="text-slate-gray font-bold">13,253 results</span>
+
+          <div class="flex flex-wrap gap-10">
+            <buy-card-component v-for="(estate, index) in realEstates" :key="index"
+                                :estate="estate">
+            </buy-card-component>
           </div>
         </div>
       </el-main>
@@ -26,88 +29,26 @@
 
 <script>
 import FilterComponent from "@/components/FilterComponent.vue";
-import {ElAside, ElContainer, ElMain} from "element-plus";
-import { ref } from 'vue'
-import { GoogleMap, Marker } from 'vue3-google-map'
-import BuyCardComponent from "@/components/BuyCardComponent.vue";
+import {ElAside, ElContainer, ElMain, ElButton, ElDialog} from "element-plus";
+import {CircleCloseFilled} from '@element-plus/icons-vue'
+import {FontAwesomeIcon as Fa} from "@fortawesome/vue-fontawesome";
+import {GoogleMap, Marker} from 'vue3-google-map'
+import BuyCardComponent from "@/components/buy/BuyCardComponent.vue";
 
 export default {
   name: 'BuyView',
   components: {
+    Fa,
     FilterComponent,
     ElAside,
     ElContainer,
     ElMain,
+    ElButton,
+    ElDialog,
+    CircleCloseFilled,
     GoogleMap,
     Marker,
-    BuyCardComponent,
-  },
-  data() {
-    return {
-      buildings: [
-        {
-          id: '1',
-          price: 45000,
-          address: "Calea Iesilor 21A, Chisinau, Republic of Moldova",
-          beds: 2,
-          baths: 2,
-          sqft: 120,
-          garage: 1,
-          parking: "None",
-          cooling: "None",
-          basement: 1,
-        },
-        {
-          id: '2',
-          price: 27000,
-          address: "bd.Moscovei 21, Chisinau, Republic of Moldova",
-          beds: 2,
-          baths: 1,
-          sqft: 50,
-          garage: "None",
-          parking: "None",
-          cooling: "None",
-          basement: "None",
-        },
-        {
-          id: '3',
-          price: 70000,
-          address: "Mircea cel Batran 16, Chisinau, Republic of Moldova",
-          beds: 3,
-          baths: 2,
-          sqft: 110,
-          garage: 1,
-          parking: "None",
-          cooling: 1,
-          basement: "None",
-        },
-        {
-          id: '4',
-          price: 40000,
-          address: "Gheorghe Asachi 12, Chisinau, Republic of Moldova",
-          beds: 2,
-          baths: 1,
-          sqft: 45,
-          garage: "None",
-          parking: "None",
-          cooling: "None",
-          basement: 1,
-        },
-        {
-          id: '5',
-          price: 100000,
-          address: "Kiev 23, Chisinau, Republic of Moldova",
-          beds: 3,
-          baths: 2,
-          sqft: 160,
-          garage: 1,
-          parking: 1,
-          cooling: 1,
-          basement: 1,
-        },
-      ],
-      visible: ref(false),
-    }
+    BuyCardComponent
   },
   computed: {
     realEstates() {
