@@ -19,6 +19,14 @@ const actions = {
             throw e;
         }
     },
+    async register({commit}, payload) {
+        try {
+            const response = await register(payload);
+            commit('REGISTER', response.token);
+        } catch (e) {
+            throw e;
+        }
+    },
     logout({commit}) {
         commit('LOGOUT');
     }
@@ -32,6 +40,10 @@ const mutations = {
     LOGOUT(state) {
         localStorage.removeItem('accessToken');
         state.accessToken = null;
+    },
+    REGISTER(state, token) {
+        localStorage.setItem('accessToken', JSON.stringify(token));
+        state.accessToken = token;
     }
 }
 
